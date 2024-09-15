@@ -1,0 +1,721 @@
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: none;
+}
+
+.drawer a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.drawer a:hover {
+    color: #f1f1f1;
+}
+
+.menu-btn {
+    font-size: 30px;
+    cursor: pointer;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+} */
+
+.columns {
+    display: flex;
+    justify-content: space-around;
+    /* padding-left: 10%; */
+    /* padding-right: 10%; */
+    gap: 1%;
+    width: 100%;
+    height: 100%;
+}
+
+.column {
+    flex: 1;
+    margin: 0 10px;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    
+    border-radius: 15px;
+    transition: 0.3s ease;
+}
+
+.column:hover {
+    transition: 0.3s ease;
+    box-shadow: 0 0 15px rgba(0,0,0,0.3);
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+input[type="range"] {
+    width: 100%;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+}
+
+.decrement,
+.increment {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.counter-value {
+    margin: 0 10px;
+}
+
+input[type="checkbox"] {
+    margin-left: 10px;
+}
+
+button[type="submit"] {
+    width: 50%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    
+    background-color: rgba(255, 204, 0, 0.5); /* background color */
+    background-image: linear-gradient(to right, #ffdc52, #ffcc00 , #ffdc52); /* BACKGROUND GRADIENT */
+    margin: 0;
+    /* padding: 0; */
+    /* height: 100vh; */
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #000000;
+    font-family: 'varsity_regular'; 
+    font-size: 125%;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    position: relative;
+    border-radius: 20px;
+}
+.header h1 {
+    color: #ffd000;
+    margin: 0;
+}
+
+.menu-button {
+    background-color: #ffffff;
+    border: none;
+    color: #000;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 14px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 18px;
+    width: 6%;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-button:hover {
+    background-color: #ffcc00;
+    color: #000;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 220px; /* change the width for menu */
+    height: 100%;
+    background-color: #ffffff;
+    border-right: 1px solid #ccc;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    /* box-shadow: 100px 0 5px rgba(0, 0, 0, 0.2); */
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+.menu.open {
+    left: 0;
+    
+    /* box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2); */
+    /* box-shadow: 1000px 1000px gray; */
+} 
+
+.menu button {
+    background-color: #ffffff;
+    color: #141414;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu button:hover {
+    background-color: #ffd000;
+    color: #000000;
+}
+
+.menu button:focus {
+    outline: none;
+    background-color: #ffd000;
+    color: #000;
+}
+
+.menu button:first-child {
+    border-top-left-radius: 10px;
+}
+
+.menu button:last-child {
+    border-bottom-left-radius: 10px;
+}
+
+/* Overlay styles */
+
+
+.overlay {
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* size: fill; */
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    opacity: 0;
+    /* visibility: hidden; */
+    transition: opacity 0.3s ease;
+    z-index: 999;
+}
+
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+
+.section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    justify-content: space-around   ;
+}
+
+.section h2 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+
+
+.counter {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.counter label {
+    flex: 1;
+    font-weight: bold;
+    cursor: auto;
+}
+.counter input, .counter textarea, .counter select {
+    flex: 2;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+.counter input[type="number"] {
+    max-width: 80px;
+    text-align: center;
+}
+.counter .btn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    margin: 0 5px;
+}
+
+.counter .btn:hover {
+    background-color: #0062ca;
+}
+.counter .btn:disabled {
+    background-color: #e0e0e0;
+}
+.counter textarea {
+    height: 100px;
+    font-family: 'vasity_regular';
+}
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    align-self: flex-end;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.team-number {
+    cursor: pointer;
+    color: rgb(75, 75, 255);
+    /* text-decoration: underline; */
+    text-align: center;
+}
+
+.delete-button {
+    text-align: left;
+    align-items: center;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 2px 1px;
+    cursor: pointer;
+    width: 60px;
+    
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
+
+#footer img {
+    margin-left: 2%;
+    height: auto;
+    width: auto;
+    max-height: 100px;
+    max-width: 100px;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+/* .snapfire-photo {
+    -webkit-user-select: none;
+    user-select: none;
+  } */
+
+
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    align-self: flex-end;
+    transition: 0.3s ease;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.previous-scoutings {
+    display: none;
+    flex-direction: column;
+}
+
+.previous-scoutings table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.previous-scoutings th, .previous-scoutings td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.previous-scoutings th {
+    background-color: #f0f0f0;
+}
+
+
+.delete-button {
+    background-color: #ff0000; /* Red background color */
+    color: white; /* White text color */
+    border: none;
+    padding: 5px 10px; /* 5px top/bottom padding, 10px left/right padding */
+    cursor: pointer;
+    font-size: 14px; /* Font size of 14 pixels */
+}
+
+.delete-button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+    color: white; /* White text color */
+}
+
+.sign {
+    text-align: center;
+}
+
+.coop {
+    text-align: right;
+}
+
+
+.input-group input[type="checkbox"] {
+    float: right;
+    width: 4em;
+    height: 1.5rem;
+    accent-color: #007bff;
+    text-align: right;
+    max-width: 170px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    background-color: white;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.team-number {
+    cursor: pointer;
+    color: rgb(75, 75, 255);
+    /* text-decoration: underline; */
+    text-align: center;
+}
+
+.delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
+
+#footer img {
+    margin-left: 2%;
+    height: auto;
+    width: auto;
+    max-height: 100px;
+    max-width: 100px;
+}
+
+.socials img{
+    margin-left: 5px;
+    margin-top: 5px;
+    height: 30px;
+}
+
+.sign img {
+    height: 28px;
+    border-radius: 5px;
+    margin-right: 3px;
+}
+
+
+
+.sign {
+    margin-top: 37px;
+    margin-bottom: 0%;
+}
+
+#submit {
+    margin-top: 20px;
+    margin-left: 9px;
+    border-radius: 10px;
+    /* margin-bottom: auto; */
+    /* display: block;
+    margin: auto;
+    margin-top: 20px;
+    width: 100px; */
+}
+
+
+
+
+
+.previous-scoutings {
+    display: none;
+    flex-direction: column;
+}
+
+.previous-scoutings table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.previous-scoutings th, .previous-scoutings td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.previous-scoutings th {
+    background-color: #f0f0f0;
+}
+
+
+.pit-scouting-section {
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    width: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+    transition: all 0.3s ease;
+}
+
+.pit-scouting-section:hover {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.pit-scouting-section h2 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+    font-size: 24px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: #000000;
+}
+
+.form-group input[type="text"],
+.form-group input[type="file"],
+.form-group textarea {
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    transition: border 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="file"]:focus,
+.form-group textarea:focus {
+    border-color: #0056b3;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group .checkbox-group {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.form-group .checkbox-group label {
+    margin-right: 10px;
+    font-weight: normal;
+}
+
+.form-group .checkbox-group input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.form-group button[type="submit"] {
+    background-color: #28a745;
+    color: #ff0000;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    transition: background-color 1s ease;
+}
+
+.form-group button[type="submit"]:hover {
+    background-color: #004099;
+}
+
+.form-group button[type="submit"]:active {
+    background-color: #003080;
+}
+
+#game {
+    height: 12px;
+    font-size: small;
+    background-color: #ffcc00;
+}
+
+
+
+@media (min-width: 1700px) {
+    body {
+        font-size: larger;
+        height: 100vh;
+    }
+    .counter .btn {
+        width: 35px;
+        height: 35px;
+    }
+    .menu-button {
+        font-size: 24px;
+    }
+    .menu button {
+        background-color: #ffffff;
+        color: #141414;
+        border: none;
+        padding: 15px 20px;
+        cursor: pointer;
+        text-align: left;
+        width: 100%;
+        font-size: 20px;
+        border-bottom: 1px solid #ddd;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    .menu {
+        width: 250px; /* change the width for menu */
+    }
+    #footer img {
+        margin-left: 2%;
+        height: auto;
+        width: auto;
+        max-height: 120px;
+        max-width: 120px;
+    }
+    label {
+        margin-top: 7%;
+    }
+
+}

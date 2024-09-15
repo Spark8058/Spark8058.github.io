@@ -1,0 +1,712 @@
+/* body {
+    font-family: Arial, sans-serif;
+    background-color: #f2f2f2;
+    margin: 0;
+    padding: 0;
+}
+
+.drawer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 250px;
+    height: 100%;
+    background-color: #333;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+    display: none;
+}
+
+.drawer a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.drawer a:hover {
+    color: #f1f1f1;
+}
+
+.menu-btn {
+    font-size: 30px;
+    cursor: pointer;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+}
+
+h1 {
+    text-align: center;
+    margin: 0;
+    padding: 20px;
+    background-color: #333;
+    color: white;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 20px;
+} */
+
+.columns {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.column {
+    flex: 1;
+    margin: 0 10px;
+    background-color: #fff;
+    padding: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+label {
+    display: block;
+    margin: 10px 0 5px;
+}
+
+input[type="text"],
+input[type="number"],
+select,
+textarea {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+input[type="range"] {
+    width: 100%;
+}
+
+.counter {
+    display: flex;
+    align-items: center;
+}
+
+.decrement,
+.increment {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.counter-value {
+    margin: 0 10px;
+}
+
+input[type="checkbox"] {
+    margin-left: 10px;
+}
+
+button[type="submit"] {
+    width: 50%;
+    padding: 10px;
+    background-color: #333;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+button[type="submit"]:hover {
+    background-color: #555;
+}
+
+
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgba(255, 204, 0, 0.5); /* background color */
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background-color: #000000;
+    font-family: 'varsity_regular'; 
+    font-size: 125%;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    position: relative;
+}
+.header h1 {
+    color: #ffd000;
+    margin: 0;
+}
+
+.menu-button {
+    background-color: #ffffff;
+    border: none;
+    color: #000;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 4px;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 18px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu-button:hover {
+    background-color: #ffcc00;
+    color: #000;
+}
+
+.menu {
+    position: fixed;
+    top: 0;
+    left: -250px;
+    width: 220px; /* change the width for menu */
+    height: 100%;
+    background-color: #ffffff;
+    border-right: 1px solid #ccc;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+    transition: left 0.3s ease;
+    z-index: 1000;
+}
+
+.menu.open {
+    left: 0;
+} 
+
+.menu button {
+    background-color: #ffffff;
+    color: #141414;
+    border: none;
+    padding: 15px 20px;
+    cursor: pointer;
+    text-align: left;
+    width: 100%;
+    font-size: 16px;
+    border-bottom: 1px solid #ddd;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.menu button:hover {
+    background-color: #ffd000;
+    color: #000000;
+}
+
+.menu button:focus {
+    outline: none;
+    background-color: #ffd000;
+    color: #000;
+}
+
+.menu button:first-child {
+    border-top-left-radius: 10px;
+}
+
+.menu button:last-child {
+    border-bottom-left-radius: 10px;
+}
+
+/* Overlay styles */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 999; /* Just below the menu */
+}
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease;
+    z-index: 999; /* Just below the menu */
+}
+
+
+.overlay.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+
+.section {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 20px;
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.section h2 {
+    margin-bottom: 10px;
+    font-size: 1.2em;
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+
+
+.counter {
+    margin-bottom: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.counter label {
+    flex: 1;
+    font-weight: bold;
+    cursor: auto;
+}
+.counter input, .counter textarea, .counter select {
+    flex: 2;
+    padding: 8px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font-size: 1em;
+}
+.counter input[type="number"] {
+    max-width: 80px;
+    text-align: center;
+}
+.counter .btn {
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border: none;
+    background-color: #007bff;
+    color: white;
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 10px;
+    display: inline-block;
+    text-align: center;
+    line-height: 30px;
+    margin: 0 5px;
+}
+.counter .btn:disabled {
+    background-color: #e0e0e0;
+}
+.counter textarea {
+    height: 100px;
+    font-family: 'vasity_regular';
+}
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    align-self: flex-end;
+}
+
+.container {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    padding: 20px;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.team-number {
+    cursor: pointer;
+    color: rgb(75, 75, 255);
+    /* text-decoration: underline; */
+    text-align: center;
+}
+
+.delete-button {
+    text-align: left;
+    align-items: center;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 2px 1px;
+    cursor: pointer;
+    width: 60px;
+    
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
+
+#footer img {
+    margin-left: 2%;
+    height: auto;
+    width: auto;
+    max-height: 100px;
+    max-width: 100px;
+}
+
+
+button {
+    background-color: #28a745;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1em;
+    align-self: flex-end;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.previous-scoutings {
+    display: none;
+    flex-direction: column;
+}
+
+.previous-scoutings table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.previous-scoutings th, .previous-scoutings td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.previous-scoutings th {
+    background-color: #f0f0f0;
+}
+
+
+.delete-button {
+    background-color: #ff0000; /* Red background color */
+    color: white; /* White text color */
+    border: none;
+    padding: 5px 10px; /* 5px top/bottom padding, 10px left/right padding */
+    cursor: pointer;
+    font-size: 14px; /* Font size of 14 pixels */
+}
+
+.delete-button:hover {
+    background-color: #cc0000; /* Darker red on hover */
+    color: white; /* White text color */
+}
+
+.sign {
+    text-align: center;
+}
+
+.coop {
+    text-align: right;
+}
+
+
+.input-group input[type="checkbox"] {
+    float: right;
+    width: 4em;
+    height: 1.5rem;
+    accent-color: #007bff;
+    text-align: right;
+    max-width: 170px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid black;
+    padding: 8px;
+    text-align: center;
+    background-color: white;
+}
+
+th {
+    background-color: #f2f2f2;
+}
+
+.team-number {
+    cursor: pointer;
+    color: rgb(75, 75, 255);
+    /* text-decoration: underline; */
+    text-align: center;
+}
+
+.delete-button {
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.delete-button:hover {
+    background-color: darkred;
+}
+
+#footer img {
+    margin-left: 2%;
+    height: auto;
+    width: auto;
+    max-height: 100px;
+    max-width: 100px;
+}
+
+
+#submit {
+    margin-top: 20px;
+    margin-left: 9px;
+}
+
+
+
+
+
+.previous-scoutings {
+    display: flex;
+    flex-direction: column;
+}
+
+.previous-scoutings table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.previous-scoutings th, .previous-scoutings td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: left;
+}
+
+.previous-scoutings th {
+    background-color: #f0f0f0;
+}
+
+
+@media (max-width: 800px) {
+    .header {
+        font-size: 100%;
+        padding: 8px 15px;
+    }
+
+    .menu-button {
+        padding: 8px;
+        font-size: 16px;
+        top: 8px;
+        left: 8px;
+    }
+
+    .menu {
+        width: 200px; /* Reduce width for mobile */
+    }
+
+    /* .container {
+        padding: 15px;
+    }
+
+    .section {
+        padding: 15px;
+    }
+
+    .input-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .input-group label, .input-group input, .input-group textarea, .input-group select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .input-group .btn {
+        width: 100%;
+        margin: 5px 0;
+    } */
+
+    /* table {
+        display: block;
+        overflow-x: auto;
+    } */
+    table {
+        /* width: 100%; */
+        border-collapse:collapse;
+        margin-bottom: 20px;
+        overflow-x: auto;
+        display: block;
+        border-collapse: collapse;
+    }
+
+    th, td {
+        padding: 6px;
+    }
+    #table-container {
+        max-height: 300px; /* Adjust this value to control the height of the container */
+        overflow-y: auto;  /* Enables vertical scrolling */
+        margin-bottom: 20px; /* Optional: Adds some space at the bottom of the table */
+    }
+    
+    table {
+        width: 100%; /* Makes sure the table takes up the full width of the container */
+        border-collapse: collapse; /* Optional: Prevents gaps between table borders */
+    }
+    
+    td, th {
+        padding: 8px;
+        border: 1px solid #ddd; /* Optional: Adds a border to the cells */
+        text-align: left; /* Aligns the text to the left */
+    }
+    
+    thead th {
+        position: sticky;
+        top: 0;
+        background-color: #f1f1f1; /* Keeps the header visible during scroll */
+    }
+    
+    
+}
+
+@media (max-width: 800px) {
+    table, thead, tbody, th, td, tr {
+        display: block;
+        flex-wrap: wrap;
+    }
+
+    thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    tr {
+        margin: 0 0 1rem 0;
+    }
+
+    tr:nth-child(odd) {
+        background: #f2f2f2;
+    }
+
+    td {
+        border: none;
+        position: relative;
+        padding-left: 50%;
+        text-align: left;
+    }
+
+    td:before {
+        position: absolute;
+        top: 0;
+        left: 6px;
+        width: 45%;
+        padding-right: 10px;
+        white-space: wrap;
+        content: attr(data-label);
+        font-weight: bold;
+    }
+}
+
+#scouting-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#scouting-table th, #scouting-table td {
+    padding: 8px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+#scouting-table thead th {
+    position: sticky;
+    top: 0;
+    background-color: #f1f1f1;
+    z-index: 1;
+}
+
+#scouting-table tbody {
+    display: block;
+    max-width: 800; /* Set your desired max height */
+    overflow-x: auto;  /* Enable vertical scrolling */
+}
+
+#scouting-table thead, #scouting-table tbody tr {
+    display: table;
+    width: 100%;
+    table-layout: fixed; /* Make sure columns have equal widths */
+}
+
+
+@media (max-width: 800px) {
+    table {
+        display: block;
+        overflow-x: auto;
+        white-space: wrap;
+    }
+
+    th, td {
+        white-space:wrap;
+        padding: 8px 5px;
+    }
+}

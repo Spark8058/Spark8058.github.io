@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css/stat.css">
+    <script src="js/stat.js"></script> 
+    <script src="js/template.js"></script> 
+    <!-- <script src="main.ts"></script> -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Statistics</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+
+</head>
+<body>
+    <div class="header">
+        <button class="back-button" onclick="goBack()">Go Back</button>
+        <h1 id="team-title">Team Stats</h1>
+        <button id="exportButton" onclick="exportToPDF()"><img src="img/exportWhite.png"/>Export to PDF</button>
+        
+
+    </div>
+    <div id="team-stats">
+        <!-- Statistics will be displayed here -->
+    </div>
+
+    <div id="average-stats">
+        <div class="average-box" id="average-auto-box">
+            <span class="label">Average Auto Speaker Points:</span>
+            <span class="value" id="average-auto"></span>
+        </div>
+        <div class="average-box" id="average-teleop-box">
+            <span class="label">Average Teleop Speaker Points:</span>
+            <span class="value" id="average-teleop"></span>
+        </div>
+        <div class="average-box" id="average-acc-box">
+            <span class="label">Average Accuracy in Auto:</span>
+            <span class="value" id="average-acc"></span>
+        </div>
+        <div class="average-box" id="average-defense-box">
+            <span class="label">Average Defense Score:</span>
+            <span class="value" id="average-defense"></span>
+        </div>
+    </div>
+
+    <div class="charts-container">
+        <div class="top-charts">
+            <canvas id="autonomous-chart"></canvas>
+            <canvas id="teleop-chart"></canvas>
+        </div>
+        <div class="bottom-chart">
+            <canvas id="accuracy-chart"></canvas>
+        </div>
+    </div>
+    
+    <div class="pit-container">
+        <!-- <div class="column">
+            <div class="pit-photo">
+                <img id="pit-photo" src="" alt="Robot Image">
+            </div> -->
+            <!-- <img id="pit-photo" src="" alt="Robot Image">
+            <span class="value" id="pit-photo"></span> -->
+        <!-- </div> -->
+        <div class="pit-details">
+            <div class="column">
+                <img id="pit-photo"  alt="Robot Image" >
+            </div>
+            <div class="column">
+                <div class="pit-item" id="pit-amp-box">
+                    <span class="label">Amp:</span>
+                    <span class="value" id="pit-amp"></span>
+                </div>
+                <div class="pit-item" id="pit-speaker-box">
+                    <span class="label">Speaker:</span>
+                    <span class="value" id="pit-speaker"></span>
+                </div>
+                <div class="pit-item" id="pit-trap-box">
+                    <span class="label">Trap:</span>
+                    <span class="value" id="pit-trap"></span>
+                </div>
+            </div>
+            <div class="column" id="col2">
+                <div class="pit-item" id="pit-drive-train-box">
+                    <span class="label">Drive Train:</span>
+                    <span class="value" id="pit-drive-train"></span>
+                </div>
+                <div class="pit-item" id="pit-autonomous-box">
+                    <span class="label">Auto:</span>
+                    <span class="value" id="pit-autonomous"></span>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+    </div>
+    <!-- <button id="ai" onclick="getAI()">Get AI</button> -->
+    
+    <div id="footer">
+        <img id="logo" src="img/logo_integra.png" alt="" draggable="false">
+    </div>
+    <div class="sign">
+        2024 - 
+        <strong>Integra 3646</strong>
+    </div> 
+    
+</body>
+</html>

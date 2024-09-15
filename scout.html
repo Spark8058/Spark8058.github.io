@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>2024 FRC Scouting</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js\template.js"></script> 
+    <!-- <script src="main.ts"></script> -->
+</head>
+<body>
+    <div class="header">
+        <h1>2024 FRC Scouting</h1>
+        <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+        <div class="menu" id="menu">
+            <button onclick="showScoutingForm()">Scout</button>
+            <button onclick="showPreviousScoutings()">See Previous Ones</button>
+            <button onclick="showPitScouting()">Pit Scouting</button>
+            <button onclick="showTeams()">Teams</button>
+        </div>
+    </div>
+    <!-- <div id="overlay" class="overlay"> </div> -->
+    <!-- <div class="drawer">
+        <button class="menu-btn" onclick="toggleDrawer()">☰</button>
+        <div class="drawer-content">
+            <a href="index.html">Scout</a>
+            <a href="previous.html">See Previous Ones</a>
+        </div>
+    </div> -->
+    <div class = "container">
+        <div id="scouting-form">
+            <div class="columns">
+            <!-- Prematch section -->
+                <div class="column">
+                    <h2>Prematch</h2>
+                    <label for="scouterName">Scouter Name</label>
+                    <input type="text" id="scouterName" required>
+                    <label for="teamNumber">Team Number</label>
+                    <input type="number" id="teamNumber" required>
+                    <label for="matchNumber">Match Number</label>
+                    <input type="number" id="matchNumber" required>
+                </div>
+
+            <!-- Autonomous section -->
+                <div class="column">
+                    <h2>Autonomous</h2>
+                    <label for="autoAmpPoints">Amp Points (Auto)</label>
+                    <div class="counter">
+                        <button class="btn" onclick="adjustPoints('autoAmpPoints', -1)">-</button>
+                        <input type="number" id="autoAmpPoints" value="0">
+                        <button class="btn" onclick="adjustPoints('autoAmpPoints', 1)">+</button>
+                    </div>
+                    <label for="autoSpeakerPoints">Speaker Points (Auto)</label>
+                    <div class="counter">
+                        <button class="btn" onclick="adjustPoints('autoSpeakerPoints', -1)">-</button>
+                        <input type="number" id="autoSpeakerPoints" value="0">
+                        <button class="btn" onclick="adjustPoints('autoSpeakerPoints', 1)">+</button>
+                    </div>
+                    <label for="autoSpeakerMissed">Missed Notes (Auto)</label>
+                    <div class="counter">
+                        <button class="btn" onclick="adjustPoints('autoSpeakerMissed', -1)">-</button>
+                        <input type="number" id="autoSpeakerMissed" value="0">
+                        <button class="btn" onclick="adjustPoints('autoSpeakerMissed', 1)">+</button>
+                    </div>
+                    <label for="autoFoulPoints">Foul Points (Auto)</label>
+                    <div class="counter">
+                        <button class="btn" onclick="adjustPoints('autoFoulPoints', -1)">-</button>
+                        <input type="number" id="autoFoulPoints" value="0">
+                        <button class="btn" onclick="adjustPoints('autoFoulPoints', 1)">+</button>
+                    </div>
+                </div>
+
+            <!-- Teleop section -->
+                <div class="column">
+                    <h2>Teleop</h2>
+                    <label for="coopertition">Coopertition</label>
+                    <input type="checkbox" id="coopertition">
+                    <label for="teleopAmpPoints">Amp Points (Teleop)</label>
+                    <div class="counter">
+                        <button class="btn" onclick="adjustPoints('teleopAmpPoints', -1)">-</button>
+                        <input type="number" id="teleopAmpPoints" value="0">
+                        <button class="btn" onclick="adjustPoints('teleopAmpPoints', 1)">+</button>
+                    </div>
+                    <label for="teleopSpeakerPoints">Speaker Points (Teleop)</label>
+                    <div class="counter">
+                        <button class="btn" onclick="adjustPoints('teleopSpeakerPoints', -1)">-</button>
+                        <input type="number" id="teleopSpeakerPoints" value="0">
+                        <button class="btn" onclick="adjustPoints('teleopSpeakerPoints', 1)">+</button>
+                    </div>
+                    <label for="teleopFoulPoints">Foul Points (Teleop)</label>
+                    <div class="counter">
+                        <button class="btn" onclick="adjustPoints('teleopFoulPoints', -1)">-</button>
+                        <input type="number" id="teleopFoulPoints" value="0">
+                        <button class="btn" onclick="adjustPoints('teleopFoulPoints', 1)">+</button>
+                    </div>
+                </div>
+
+            <!-- Endgame section -->
+                <div class="column">
+                    <h2>Endgame</h2>
+                    <label for="endPosition">End Position</label>
+                    <select id="endPosition" name="endPosition">
+                        <option value="None">None</option>
+                        <option value="Park">Park</option>
+                        <option value="Climb">Climb</option>
+                        <option value="Failed Climb">Failed Climb</option>
+                        <option value="Harmony">Harmony</option>
+                    
+                    </select>
+                    <label for="noteInTrap">Note In Trap</label>
+                    <input type="checkbox" id="noteInTrap">
+                </div>
+
+            <!-- Aftermatch section -->
+                <div class="column">
+                    <h2>Aftermatch</h2>
+                    <label for="offense">Offense</label>
+                    <input type="range" id="offense" name="offense" min="1" max="10">
+                    <label for="defense">Defense</label>
+                    <input type="range" id="defense" name="defense" min="1" max="10">
+                    <label for="driverSkill">Driver Skill</label>
+                    <input type="range" id="driverSkill" name="driverSkill" min="1" max="10">
+                    <label for="card">Card</label>
+                    <select id="card" name="card">
+                        <option value="No Card">No Card</option>
+                        <option value="Yellow Card">Yellow Card</option>
+                        <option value="Red Card">Red Card</option>
+                    </select>
+                    <label for="comments">Comments</label>
+                    <textarea id="comments" name="comments"></textarea>
+                </div>
+            </div>
+        <!-- <button type="submit" class="submit-button">Submit</button> -->
+            <button id = "submit" onclick="submitData()">Submit</button>
+        </div>
+
+
+        <div class="section previous-scoutings" id="previous-scoutings">
+            <h2>Previous Scouting Data</h2>
+            <table id="scouting-table">
+                <thead>
+                    <tr>
+                        <th>Scouter Name</th>
+                        <th>Team Number</th>
+                        <th>Match Number</th>
+                        <th>Amp Points (Auto)</th>
+                        <th>Speaker Points (Auto)</th>
+                        <th>Foul Points (Auto)</th>
+                        <th>Notes Missed</th>
+                        <th>Coopertition</th>
+                        <th>Amp Points (Teleop)</th>
+                        <th>Speaker Points (Teleop)</th>
+                        <th>Foul Points (Teleop)</th>
+                        <th>End Position</th>
+                        <th>Note In Trap</th>
+                        <th>Offense</th>  
+                        <th>Defense</th>
+                        <th>Driver Skill</th>    
+                        <th>Card</th>
+                        <th>Notes</th>    
+                    </tr>
+                </thead>
+                <tbody id="scouting-table-body">
+                    <!-- Dynamic rows will be added here -->
+                </tbody>
+            </table>
+        </div>
+
+       
+        
+    </div>   
+    <div id="footer">
+        <img id="logo" src="img\logo_integra.png" alt="integra-logo" draggable="false"/>
+    </div>
+    <!-- <div id="links" class="socials">
+        <a class="insta" href="https://www.instagram.com/integra_3646/" target="_blank"><img src="img/instaLogo.png" alt=""></a>
+        <a class="insta" href="https://tr.linkedin.com/company/integra3646" target="_blank"><img src="img/linkedinLogo.png" alt=""></a>
+        <a class="insta" href="https://www.youtube.com/@frc3646" target="_blank"><img src="img/youtubeLogo.png" alt=""></a>
+        <a class="insta" href="https://x.com/FRC_Integra3646" target="_blank"><img src="img/xLogo.jpg" alt=""></a>
+    </div> -->
+    <div class ="sign">
+        2024 - 
+        <strong>Integra 3646</strong>
+        <a class="insta" href="https://www.instagram.com/integra_3646/" target="_blank"><img src="img/instaLogo.png" alt=""></a>
+        <a class="linkedin" href="https://tr.linkedin.com/company/integra3646" target="_blank"><img src="img/linkedinLogo.png" alt=""></a>
+        <a class="youtube" href="https://www.youtube.com/@frc3646" target="_blank"><img src="img/youtubeLogo.png" alt=""></a>
+        <a class="twitter" href="https://x.com/FRC_Integra3646" target="_blank"><img src="img/xLogo.jpg" alt=""></a>
+        <a class="tba" href="https://www.thebluealliance.com/team/3646" target="_blank"><img src="img/tbaLogo.png" alt=""></a>
+        <!-- <button class="game" id="game" onclick="showGame()"><img src="img/questionMark.png" alt=""></button> -->
+        
+    </div> 
+    
+    <script src="scripts.js"></script>
+</body>
+</html>

@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>2024 FRC Scouting</title>
+    <link rel="stylesheet" href="css/previous.css">
+    <script src="js\template.js"></script> 
+    <!-- Add SheetJS library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+
+    <!-- <script src="main.ts"></script> -->
+</head>
+<body>
+    <div class="header">
+        <h1>2024 FRC Scouting</h1>
+        <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+        <div class="menu" id="menu">
+            <button onclick="showScoutingForm()">Scout</button>
+            <button onclick="showPreviousScoutings()">See Previous Ones</button>
+            <button onclick="showPitScouting()">Pit Scouting</button>
+            <button onclick="showTeams()">Teams</button>
+        </div>
+    </div>
+    <div id="overlay" class="overlay"></div>
+    <!-- <div class="drawer">
+        <button class="menu-btn" onclick="toggleDrawer()">☰</button>
+        <div class="drawer-content">
+            <a href="index.html">Scout</a>
+            <a href="previous.html">See Previous Ones</a>
+        </div>
+    </div> -->
+    <div class = "container">
+        <div class="section previous-scoutings" id="previous-scoutings">
+            <h2>Previous Scouting Data</h2>
+            <input type="text" id="filterInput" onkeyup="filterTable()" placeholder="Search for team numbers..">
+            <table id="scouting-table">
+                <thead>
+                    <tr>
+                        <th onclick="sortTable(0)">Scouter Name</th>
+                        <th onclick="sortTable(1)">Team Number</th>
+                        <th onclick="sortTable(2)">Match Number</th>
+                        <th onclick="sortTable(3)">Amp Points (Auto)</th>
+                        <th onclick="sortTable(4)">Speaker Points (Auto)</th>
+                        <th onclick="sortTable(5)">Foul Points (Auto)</th>
+                        <th onclick="sortTable(6)">Notes Missed</th>
+                        <th onclick="sortTable(7)">Coopertition</th>
+                        <th onclick="sortTable(8)">Amp Points (Teleop)</th>
+                        <th onclick="sortTable(9)">Speaker Points (Teleop)</th>
+                        <th onclick="sortTable(10)">Foul Points (Teleop)</th>
+                        <th onclick="sortTable(11)">End Position</th>
+                        <th onclick="sortTable(12)">Note In Trap</th>
+                        <th onclick="sortTable(13)">Offense</th>  
+                        <th onclick="sortTable(14)">Defense</th>
+                        <th onclick="sortTable(15)">Driver Skill</th>    
+                        <th onclick="sortTable(16)">Card</th>
+                        <th onclick="sortTable(17)">Notes</th>   
+                    </tr>
+                </thead>
+                <tbody id="scouting-table-body">
+                    <!-- Dynamic rows will be added here -->
+                </tbody>
+            </table>
+            <!-- <img id="export" src="img/export.png" alt="export" draggable="false"> -->
+            <button id="export-button" onclick="exportTableToExcel()" ><img src="img/exportWhite.png"/>Export Data</button>
+        </div>
+    </div>   
+   
+
+    <div id="footer">
+        <img id="logo" src="img\logo_integra.png" alt="" draggable="false">
+    </div>
+    <div class ="sign">
+        2024 - 
+        <strong>Integra 3646</strong>
+    </div> 
+   
+</body>
+</html>

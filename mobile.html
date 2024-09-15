@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="css\mobile.css">
+    <script src="js\mobile.js"></script> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>2024 FRC Scouting</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Sofia">
+    <link href="https://fonts.cdnfonts.com/css/varsity-3" rel="stylesheet">
+</head>
+<body>
+    <!-- <div class="header">
+        <h1>2024 FRC Scouting</h1>
+        <div id="menu"></div>
+            <div id="sidebar">
+                <button onclick="showScoutingForm()">Scout</button>
+                <button onclick="showPreviousScoutings()">See Previous Ones</button>
+        </div>
+    </div> -->
+    
+    <!-- <div class="header">
+        <h1>2024 FRC Scouting</h1>
+        <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+    </div>
+    <div class="menu" id="menu">
+        <button onclick="showScoutingForm()">Scout</button>
+        <button onclick="showPreviousScoutings()">See Previous Ones</button>
+    </div> -->
+    <div class="header">
+        <h1>2024 FRC Scouting</h1>
+        <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+        <div class="menu" id="menu">
+            <button onclick="showScoutingForm()">Scout</button>
+            <button onclick="showPreviousScoutings()">See Previous Ones</button>
+            <button onclick="showPitScouting()">Pit Scouting</button>
+            <button onclick="showTeams()">Teams</button>
+        </div>
+    </div>
+    <div id="overlay" class="overlay"></div>
+    <div class="container">
+        <div class="section" id="scouting-form">
+            <h2>Information</h2>
+            <div class="input-group">
+                <label for="scouter-name">Scouter Name</label>
+                <input type="text" id="scouter-name" required>
+            </div>
+            <div class="input-group">
+                <label for="team-number">Team Number</label>
+                <input type="number" id="team-number" required>
+            </div>
+            <div class="input-group">
+                <label for="match-number">Match Number</label>
+                <input type="number" id="match-number" required>
+            </div>
+            <h2>Autonomous</h2>
+            <div class="input-group">
+                <label for="amp-points-auto">Amp Points</label>
+                <div>
+                    <button class="btn" onclick="adjustPoints('amp-points-auto', -1)">-</button>
+                    <input type="number" id="amp-points-auto" value="0">
+                    <button class="btn" onclick="adjustPoints('amp-points-auto', 1)">+</button>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="speaker-points-auto">Speaker Points</label>
+                <div>
+                    <button class="btn" onclick="adjustPoints('speaker-points-auto', -1)">-</button>
+                    <input type="number" id="speaker-points-auto" value="0">
+                    <button class="btn" onclick="adjustPoints('speaker-points-auto', 1)">+</button>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="speaker-points-auto">Notes Missed</label>
+                <div>
+                    <button class="btn" onclick="adjustPoints('notes-missed', -1)">-</button>
+                    <input type="number" id="notes-missed" value="0">
+                    <button class="btn" onclick="adjustPoints('notes-missed', 1)">+</button>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="foul-points-auto">Foul Points</label>
+                <input type="number" id="foul-points-auto" value="0">
+            </div>
+            <h2>Teleop</h2>
+            <div class="input-group">
+                <label for="coopertition">Coopertition</label>
+                <input type="checkbox" id="coopertition">
+            </div>
+            <div class="input-group">
+                <label for="amp-points-teleop">Amp Points</label>
+                <div>
+                    <button class="btn" onclick="adjustPoints('amp-points-teleop', -1)">-</button>
+                    <input type="number" id="amp-points-teleop" value="0">
+                    <button class="btn" onclick="adjustPoints('amp-points-teleop', 1)">+</button>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="speaker-points-teleop">Speaker Points</label>
+                <div>
+                    <button class="btn" onclick="adjustPoints('speaker-points-teleop', -1)">-</button>
+                    <input type="number" id="speaker-points-teleop" value="0">
+                    <button class="btn" onclick="adjustPoints('speaker-points-teleop', 1)">+</button>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="speaker-points-teleop-amp">Speaker Points (Amplified)</label>
+                <div>
+                    <button class="btn" onclick="adjustPoints('speaker-points-teleop-amp', -1)">-</button>
+                    <input type="number" id="speaker-points-teleop-amp" value="0">
+                    <button class="btn" onclick="adjustPoints('speaker-points-teleop-amp', 1)">+</button>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="foul-points-teleop">Foul Points</label>
+                <input type="number" id="foul-points-teleop" value="0">
+            </div>
+            <h2>End of Match</h2>
+            <div class="input-group">
+                <label for="end-position">Stage</label>
+                <select id="end-position">
+                    <option value="None">None</option>
+                    <option value="Park">Park</option>
+                    <option value="Onstage (not Spotlit)">Onstage (not Spotlit)</option>
+                    <option value="Onstage (Spotlit)">Onstage (Spotlit)</option>
+                    <option value="Harmony">Harmony</option>
+                    <option value="Note in Trap">Note in Trap</option>
+                </select>
+            </div>
+            <!-- <div class="input-group">
+                <label for="harmony">Harmony</label>
+                <select id="harmony">
+                    <option value="0">0</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                </select>
+            </div> -->
+            <h2>Notes</h2>
+            <div class="input-group">
+                <label for="notes">Notes</label>
+                <textarea id="notes"></textarea>
+            </div>
+            <button id="submit" onclick="submitData()">Submit</button>
+        </div>
+
+        <div class="section previous-scoutings" id="previous-scoutings">
+            <h2>Previous Scouting Data</h2>
+            <table id="scouting-table">
+                <thead>
+                    <tr>
+                        <th>Scouter Name</th>
+                        <th>Team Number</th>
+                        <th>Match Number</th>
+                        <th>Amp Points (Auto)</th>
+                        <th>Speaker Points (Auto)</th>
+                        <th>Foul Points (Auto)</th>
+                        <th>Notes Missed</th>
+                        <th>Coopertition</th>
+                        <th>Amp Points (Teleop)</th>
+                        <th>Speaker Points (Teleop)</th>
+                        <th>Speaker Points Amplified (Teleop)</th>
+                        <th>Foul Points (Teleop)</th>
+                        <th>End Position</th>
+                        <!-- <th>Harmony</th> -->
+                        <th>Notes</th>    
+                    </tr>
+                </thead>
+                <tbody id="scouting-table-body">
+                    <!-- Dynamic rows will be added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>   
+    <div id="footer">
+        <img id="logo" src="img\logo_integra.png" alt="">
+    </div>
+    <div class ="sign">
+        2024 - 
+        <strong>Integra 3646</strong>
+    </div> 
+</body>
+</html>

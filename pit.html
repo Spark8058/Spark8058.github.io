@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pit Scouting</title>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="css/pit.css">
+    <script src="js\template.js"></script> 
+    <script src="js\pit.js"></script> 
+
+</head>
+<body>
+    <div class="header">
+        <h1>2024 FRC Scouting</h1>
+        <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+        <div class="menu" id="menu">
+            <button onclick="showScoutingForm()">Scout</button>
+            <button onclick="showPreviousScoutings()">See Previous Ones</button>
+            <button onclick="showPitScouting()">Pit Scouting</button>
+            <button onclick="showTeams()">Teams</button>
+        </div>
+    </div>
+
+    <div class="pit-scouting-section">
+    <h2>Pit Scouting</h2>
+
+    <div class="form-group">
+        <label for="teamNumber">Team Number:</label>
+        <input type="text" required id="teamNumber" name="teamNumber" required>
+    </div>
+
+    <div class="form-group">
+        <label for="photo">Upload Photo:</label>
+        <input type="file" id="photo" name="photo" accept="image/*">
+    </div>
+
+    <div class="form-group">
+        <label>Capabilities:</label>
+        <div class="checkbox-group">
+            <label><input type="checkbox" id="amp" name="capabilities" value="Amp"> Amp</label>
+            <label><input type="checkbox" id="speaker" name="capabilities" value="Speaker"> Speaker</label>
+            <label><input type="checkbox" id="trap" name="capabilities" value="Trap"> Trap</label>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="driveTrain">Drive Train:</label>
+        <input type="text" id="driveTrain" name="driveTrain">
+    </div>
+
+    <div class="form-group">
+        <label for="autonomous">Autonomous:</label>
+        <textarea id="autonomous" name="autonomous" rows="3"></textarea>
+    </div>
+
+    <div class="form-group">
+        <button id = "submit" onclick="submitPitScoutingData()">Submit</button>
+     
+    </div>
+
+    </div> 
+    <div id="footer">
+        <img id="logo" src="img\logo_integra.png" alt="" draggable="false"  />
+    </div>
+    <div class ="sign">
+        2024 - 
+        <strong>Integra 3646</strong>
+    </div>
+    
+
+
+
+</body>
+</html>

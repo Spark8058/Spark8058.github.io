@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>2024 FRC Scouting</title>
+    <link rel="stylesheet" href="css/mobilePrevious.css">
+    <script src="js\mobile.js"></script> 
+    <!-- <script src="main.ts"></script> -->
+</head>
+<body>
+    <div class="header">
+        <h1>2024 FRC Scouting</h1>
+        <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+        <div class="menu" id="menu">
+            <button onclick="showScoutingForm()">Scout</button>
+            <button onclick="showPreviousScoutings()">See Previous Ones</button>
+            <button onclick="showPitScouting()">Pit Scouting</button>
+        </div>
+    </div>
+    <div id="overlay" class="overlay"></div>
+    <!-- <div class="drawer">
+        <button class="menu-btn" onclick="toggleDrawer()">☰</button>
+        <div class="drawer-content">
+            <a href="index.html">Scout</a>
+            <a href="previous.html">See Previous Ones</a>
+        </div>
+    </div> -->
+    <div class = "container">
+        <div class="section previous-scoutings" id="previous-scoutings">
+            <h2>Previous Scouting Data</h2>
+            <table id="scouting-table">
+                <thead>
+                    <tr>
+                        <th>Scouter Name</th>
+                        <th>Team Number</th>
+                        <th>Match Number</th>
+                        <th>Amp Points (Auto)</th>
+                        <th>Speaker Points (Auto)</th>
+                        <th>Notes Missed</th>
+                        <th>Foul Points (Auto)</th>
+                        <th>Coopertition</th>
+                        <th>Amp Points (Teleop)</th>
+                        <th>Speaker Points (Teleop)</th>
+                        <th>Speaker Points (Amplified)</th>
+                        <th>Foul Points (Teleop)</th>
+                        <th>End Position</th>
+                        <!-- <th>Note In Trap</th>
+                        <th>Offense</th>  
+                        <th>Defense</th>
+                        <th>Driver Skill</th>    
+                        <th>Card</th> -->
+                        <th>Notes</th>    
+                    </tr>
+                </thead>
+                <tbody id="scouting-table-body">
+                    <!-- Dynamic rows will be added here -->
+                </tbody>
+            </table>
+        </div>
+    </div>   
+    <div id="footer">
+        <img id="logo" src="img\logo_integra.png" alt="" draggable="false">
+    </div>
+    <div class ="sign">
+        2024 - 
+        <strong>Integra 3646</strong>
+    </div> 
+   
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teams</title>
+    <link rel="stylesheet" href="css/teams.css">
+    <!-- <link rel="stylesheet" href="css/style.css"> -->
+    <script src="js/template.js"></script>
+</head>
+<body>
+    <div class="header">
+        <h1>2024 FRC Scouting</h1>
+        <button class="menu-button" onclick="toggleMenu()">☰ Menu</button>
+        <div class="menu" id="menu">
+            <button onclick="showScoutingForm()">Scout</button>
+            <button onclick="showPreviousScoutings()">See Previous Ones</button>
+            <button onclick="showPitScouting()">Pit Scouting</button>
+            <button onclick="showTeams()">Teams</button>
+        </div>
+    </div>
+
+    <section class="teams-grid" id="teams-grid">
+        <!-- Team cards will be dynamically injected here -->
+    </section>
+    <!-- Footer Wrapper -->
+    <div class="footer-wrapper">
+        <div class="footer" id="footer">
+            <img class="footer" id="logo" src="img/logo_integra.png" alt="" draggable="false"/>
+        </div>
+        <div class="sign">
+            2024 - 
+            <strong>Integra 3646</strong>
+        </div>
+    </div>
+
+    <script src="js/teams.js"></script>
+</body>
+</html>
