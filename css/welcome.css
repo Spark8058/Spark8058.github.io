@@ -242,7 +242,7 @@ h1 {
     .bottom-left-shape {
         /* visibility: hidden; */
         left: -200;
-        bottom: -200;
+        bottom: -100;
         width: 400px;
         height: 400px;
     }
