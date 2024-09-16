@@ -52,7 +52,7 @@ body {
 
 /* Title Section */
 .title-section {
-    margin-top: -40px;
+    margin-top: -10px;
 }
 
 /* h2 {
@@ -240,11 +240,11 @@ h1 {
 
 @media (max-width: 900px) {
     .bottom-left-shape {
-        /* visibility: hidden; */
-        left: -200;
+        visibility: hidden;
+        /* left: -200;
         bottom: -100;
         width: 400px;
-        height: 400px;
+        height: 400px; */
     }
     .top-right-shape {
         visibility: hidden;
