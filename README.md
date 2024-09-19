@@ -2,7 +2,7 @@
 
 ## Overview
 This project is designed to help FRC teams efficiently scout and analyze data during competitions. The scouting platform allows teams to gather performance data, export it in PDF and Excel formats, and see the statistics better and easier. Also makes it easier to share it.
-The site is not officially avaliable yet. And the logos, colors are demo.
+The site is not officially avaliable yet. And the logos, colors are demo. Made as a personal project, not a team's project.
 
 ## Features
 - **Team Stats Page**: View detailed statistics about teams. Also summarizes the data.
