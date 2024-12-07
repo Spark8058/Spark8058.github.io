@@ -46,10 +46,10 @@ function toggleMenu() {
 function showScoutingForm() {
     // document.getElementById('scouting-form').style.display = 'flex';
     window.location.href = 'scout.html';
-    if(screen.width <=700) {
-        window.location.href = 'mobile.html';
-        document.location ='mobile.html';
-    }
+    // if(screen.width <=700) {
+    //     window.location.href = 'mobile.html';
+    //     document.location ='mobile.html';
+    // }
     // document.getElementById('previous-scoutings').style.display = 'none';
 
     toggleMenu();
